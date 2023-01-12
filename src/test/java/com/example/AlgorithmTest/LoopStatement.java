@@ -108,4 +108,38 @@ public class LoopStatement {
 		return sb.toString();
 		
 	}
+
+	public int calCycle(int N) {
+		if(!(0 <= N && N <= 99))
+			throw new IllegalArgumentException();
+		int cycleCnt = 0;
+		int newN = doCycle(N);
+		while (true){
+			cycleCnt++;
+			if(newN != N){
+				newN = doCycle(newN);
+			} else
+				break;
+		}
+		return cycleCnt;
+	}
+	public int doCycle(int N){
+		int newN = 0;
+
+		if(N >= 10){
+			String[] nums = Integer.toString(N).split("");
+			String lastNum = Integer.toString(N % 10);
+			for (String num : nums) {
+				newN += Integer.parseInt(num);
+			}
+			String newNStr = lastNum + (
+						newN >= 10
+						? Integer.toString(newN % 10)
+						: Integer.toString(newN)
+			);
+			newN = Integer.parseInt(newNStr);
+		} else
+			newN = N*10 + N;
+		return newN;
+	}
 }

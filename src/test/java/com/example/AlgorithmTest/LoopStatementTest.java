@@ -167,4 +167,26 @@ public class LoopStatementTest {
 						"0 0")
 		);
 	}
+	@DisplayName("Q7: N이 주어졌을 때, N의 사이클의 길이를 구하는 프로그램")
+	@Test
+	public void calCycleTest(){
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+			() -> ls.calCycle(100)
+		);
+		int result = ls.calCycle(26);
+		Assertions.assertThat(result).isEqualTo(4);
+
+		int result2 = ls.calCycle(55);
+		Assertions.assertThat(result2).isEqualTo(3);
+
+		int result3 = ls.calCycle(1);
+		Assertions.assertThat(result3).isEqualTo(60);
+
+		int result4 = ls.calCycle(0);
+		Assertions.assertThat(result4).isEqualTo(1);
+
+		int result5 = ls.calCycle(71);
+		Assertions.assertThat(result5).isEqualTo(12);
+
+	}
 }
