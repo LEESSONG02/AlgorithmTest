@@ -78,5 +78,47 @@ public class LoopStatementTest {
 		Assertions.assertThat(result).isEqualTo(6);
 	}
 
+	@DisplayName("Q4: 총 금액이 영수증에 적힌 총 금액과 일치하는지 검사하는 프로그램")
+	@Test
+	public void checkBillTest(){
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+			() -> ls.checkBill("0\r\n" +
+					"4\r\n" +
+					"20000 5\r\n" +
+					"30000 2\r\n" +
+					"10000 6\r\n" +
+					"5000 8")
+		);
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+				() -> ls.checkBill("26000\r\n" +
+						"0\r\n" +
+						"20000 5\r\n" +
+						"30000 2\r\n" +
+						"10000 6\r\n" +
+						"5000 8")
+		);
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+				() -> ls.checkBill("26000\r\n" +
+						"4\r\n" +
+						"20000 15\r\n" +
+						"30000 2\r\n" +
+						"10000 6\r\n" +
+						"5000 8")
+		);
+		String result = ls.checkBill("260000\r\n" +
+				"4\r\n" +
+				"20000 5\r\n" +
+				"30000 2\r\n" +
+				"10000 6\r\n" +
+				"5000 8");
+		Assertions.assertThat(result).isEqualTo("Yes");
 
+		String result2 = ls.checkBill("250000\r\n" +
+				"4\r\n" +
+				"20000 5\r\n" +
+				"30000 2\r\n" +
+				"10000 6\r\n" +
+				"5000 8");
+		Assertions.assertThat(result2).isEqualTo("No");
+	}
 }

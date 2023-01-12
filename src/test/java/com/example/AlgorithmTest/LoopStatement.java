@@ -52,4 +52,26 @@ public class LoopStatement {
 
 		return sum;
 	}
+
+	public String checkBill(String billStr) {
+		String[] billStrArr = billStr.split("\r\n");
+		int totalCnt = Integer.parseInt(billStrArr[0]);
+		int totalItemCnt = Integer.parseInt(billStrArr[1]);
+		String result = "No";
+		if(!(1 <= totalCnt && totalCnt <= 1000000000) || !(1 <= totalItemCnt && totalItemCnt <= 100))
+			throw new IllegalArgumentException();
+		if(totalItemCnt != billStrArr.length -2)
+			throw new IllegalArgumentException();
+		int sum = 0;
+		for (int i = 2; i <= billStrArr.length - 1; i++) {
+			String[] eachItemArr = billStrArr[i].split(" ");
+			int[] eachItemIntArr = Arrays.stream(eachItemArr).mapToInt(Integer::parseInt).toArray();
+			if(!(1 <= eachItemIntArr[0] && eachItemIntArr[0] <= 1000000) || !(1 <= eachItemIntArr[1] && eachItemIntArr[1] <= 10))
+				throw new IllegalArgumentException();
+			sum += eachItemIntArr[0] * eachItemIntArr[1];
+		}
+		if(totalCnt == sum)
+			result = "Yes";
+		return result;
+	}
 }
