@@ -12,7 +12,7 @@ public class IfStatementTest {
 		ifStatement = new IfStatement();
 	}
 
-	@DisplayName("두 수를 비교하는 프로그램")
+	@DisplayName("Q1: 두 수를 비교하는 프로그램")
 	@Test
 	public void compareNumTest(){
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
@@ -27,7 +27,7 @@ public class IfStatementTest {
 		String result3 = ifStatement.compareNum("5 5");
 		Assertions.assertThat(result3).isEqualTo("==");
 	}
-	@DisplayName("시험 성적 출력 프로그램")
+	@DisplayName("Q2: 시험 성적 출력 프로그램")
 	@Test
 	public void getGradeTest(){
 		 Assertions.assertThatIllegalArgumentException().isThrownBy(
@@ -45,7 +45,7 @@ public class IfStatementTest {
 		String result4 = ifStatement.getGrade(58);
 		Assertions.assertThat(result4).isEqualTo("F");
 	}
-	@DisplayName("윤년 판단 출력 프로그램")
+	@DisplayName("Q3: 윤년 판단 출력 프로그램")
 	@Test
 	public void isLeapYearTest() {
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
@@ -59,7 +59,7 @@ public class IfStatementTest {
 		Assertions.assertThat(result3).isEqualTo(1);
 	}
 
-	@DisplayName("좌표 사분면 판단 프로그램")
+	@DisplayName("Q4: 좌표 사분면 판단 프로그램")
 	@Test
 	public void getQuadrantTest() {
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
@@ -86,7 +86,7 @@ public class IfStatementTest {
 
 	}
 
-	@DisplayName("알람시간 구하는 프로그램")
+	@DisplayName("Q5: 알람시간 구하는 프로그램")
 	@Test
 	public void getAlarmTimeTest(){
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
@@ -105,7 +105,7 @@ public class IfStatementTest {
 		String result3 = ifStatement.getAlarmTime("23 40");
 		Assertions.assertThat(result3).isEqualTo("22 55");
 	}
-	@DisplayName("오븐구이가 끝나는 시각을 계산하는 프로그램")
+	@DisplayName("Q6: 오븐구이가 끝나는 시각을 계산하는 프로그램")
 	@Test
 	public void getOvenEndTimeTest() {
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
@@ -121,7 +121,7 @@ public class IfStatementTest {
 		Assertions.assertThat(result3).isEqualTo("0 13");
 	}
 
-	@DisplayName("상금 계산 프로그램")
+	@DisplayName("Q7: 상금 계산 프로그램")
 	@Test
 	public void calPrizeTest(){
 		Assertions.assertThatIllegalArgumentException().isThrownBy(

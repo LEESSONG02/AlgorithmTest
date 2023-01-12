@@ -14,7 +14,7 @@ public class LoopStatementTest {
 	}
 
 
-	@DisplayName("구구단 출력 프로그램")
+	@DisplayName("Q1: 구구단 출력 프로그램")
 	@Test
 	public void printMultiplicationTableTest(){
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
@@ -43,7 +43,7 @@ public class LoopStatementTest {
 				"9 * 9 = 81");
 
 	}
-	@DisplayName("두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램")
+	@DisplayName("Q2: 두 정수 A와 B를 입력받은 다음, A+B를 출력하는 프로그램")
 	@Test
 	public void printPlusTest(){
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
@@ -68,10 +68,14 @@ public class LoopStatementTest {
 				"7");
 	}
 	
-	@DisplayName("n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램")
+	@DisplayName("Q3: n이 주어졌을 때, 1부터 n까지 합을 구하는 프로그램")
 	@Test
-	public void Test(){
-		
+	public void sumNumberTest(){
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+			() -> ls.sumNumber(0)
+		);
+		int result = ls.sumNumber(3);
+		Assertions.assertThat(result).isEqualTo(6);
 	}
 
 

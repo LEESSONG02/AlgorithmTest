@@ -41,4 +41,15 @@ public class LoopStatement {
 		}
 		return sb.toString();
 	}
+
+	public int sumNumber(int num) {
+		if(!(1 <= num && num <= 10000))
+			throw new IllegalArgumentException();
+		int sum = 0;
+		for (int i = 1; i <= num ; i++) {
+			sum += i;
+		}
+
+		return sum;
+	}
 }
