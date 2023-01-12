@@ -74,4 +74,38 @@ public class LoopStatement {
 			result = "Yes";
 		return result;
 	}
+
+	public String printStars(int cnt) {
+		if(!(1 <= cnt && cnt <= 100))
+			throw new IllegalArgumentException();
+		StringBuffer sb = new StringBuffer();
+		for (int i = 1; i <=cnt ; i++) {
+			sb.append("*".repeat(i));
+			if(i != cnt)
+				sb.append("\r\n");
+		}
+		return sb.toString();
+	}
+
+	public String terminateSum(String nums) {
+		String[] numsArr = nums.split("\r\n");
+		StringBuffer sb = new StringBuffer();
+
+		for (int i = 0; i < numsArr.length; i++) {
+			String[] strArr = numsArr[i].split(" ");
+			int[] numsIntArr = Arrays.stream(strArr).mapToInt(Integer::parseInt).toArray();
+			int A = numsIntArr[0];
+			int B = numsIntArr[1];
+			if(A > 0 && B < 10){
+				sb.append(A+B);
+				if(i != numsArr.length-2)
+					sb.append("\r\n");
+			} else if (A == 0 && B == 0) {
+				return sb.toString();
+			} else
+				throw new IllegalArgumentException();
+		}
+		return sb.toString();
+		
+	}
 }

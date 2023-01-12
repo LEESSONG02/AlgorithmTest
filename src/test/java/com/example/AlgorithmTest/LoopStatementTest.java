@@ -121,4 +121,50 @@ public class LoopStatementTest {
 				"5000 8");
 		Assertions.assertThat(result2).isEqualTo("No");
 	}
+	@DisplayName("Q5: 첫째 줄에는 별 1개, 둘째 줄에는 별 2개, N번째 줄에는 별 N개를 찍는 문제")
+	@Test
+	public void printStarsTest(){
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+			() -> ls.printStars(500)
+		);
+		String result = ls.printStars(5);
+		Assertions.assertThat(result).isEqualTo("*\r\n" +
+				"**\r\n" +
+				"***\r\n" +
+				"****\r\n" +
+				"*****");
+	}
+	
+	@DisplayName("Q6: 0 0이 들어올 때까지 A+B를 출력하는 프로그램")
+	@Test
+	public void terminateSumTest(){
+
+		String result = ls.terminateSum("1 1\r\n" +
+				"2 3\r\n" +
+				"3 4\r\n" +
+				"9 8\r\n" +
+				"5 2\r\n" +
+				"0 0");
+		Assertions.assertThat(result).isEqualTo("2\r\n" +
+				"5\r\n" +
+				"7\r\n" +
+				"17\r\n" +
+				"7");
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+			() -> ls.terminateSum("1 10\r\n" +
+					"2 3\r\n" +
+					"3 4\r\n" +
+					"9 8\r\n" +
+					"5 2\r\n" +
+					"0 0")
+		);
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+				() -> ls.terminateSum("0 9\r\n" +
+						"2 3\r\n" +
+						"3 4\r\n" +
+						"9 8\r\n" +
+						"5 2\r\n" +
+						"0 0")
+		);
+	}
 }
