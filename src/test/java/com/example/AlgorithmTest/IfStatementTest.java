@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class IfStatementTest {
+class IfStatementTest {
 	private static IfStatement ifStatement;
 	@BeforeAll
 	static void init(){
@@ -14,7 +14,7 @@ public class IfStatementTest {
 
 	@DisplayName("Q1: 두 수를 비교하는 프로그램")
 	@Test
-	public void compareNumTest(){
+	void compareNumTest(){
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
 				()->ifStatement.compareNum("1 1000000")
 		);
@@ -29,7 +29,7 @@ public class IfStatementTest {
 	}
 	@DisplayName("Q2: 시험 성적 출력 프로그램")
 	@Test
-	public void getGradeTest(){
+	void getGradeTest(){
 		 Assertions.assertThatIllegalArgumentException().isThrownBy(
 				 () -> ifStatement.getGrade(10000)
 		 );
@@ -47,21 +47,21 @@ public class IfStatementTest {
 	}
 	@DisplayName("Q3: 윤년 판단 출력 프로그램")
 	@Test
-	public void isLeapYearTest() {
+	void isLeapYearTest() {
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
 				() -> ifStatement.isLeapYear(5000)
 		);
 		int result = ifStatement.isLeapYear(2000);
 		Assertions.assertThat(result).isEqualTo(1);
 		int result2 = ifStatement.isLeapYear(1999);
-		Assertions.assertThat(result2).isEqualTo(0);
+		Assertions.assertThat(result2).isZero();
 		int result3 = ifStatement.isLeapYear(2012);
 		Assertions.assertThat(result3).isEqualTo(1);
 	}
 
 	@DisplayName("Q4: 좌표 사분면 판단 프로그램")
 	@Test
-	public void getQuadrantTest() {
+	void getQuadrantTest() {
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
 				() -> ifStatement.getQuadrant("12\r\n20000")
 		);
@@ -88,7 +88,7 @@ public class IfStatementTest {
 
 	@DisplayName("Q5: 알람시간 구하는 프로그램")
 	@Test
-	public void getAlarmTimeTest(){
+	void getAlarmTimeTest(){
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
 				()-> ifStatement.getAlarmTime("50 10")
 		);
@@ -107,7 +107,7 @@ public class IfStatementTest {
 	}
 	@DisplayName("Q6: 오븐구이가 끝나는 시각을 계산하는 프로그램")
 	@Test
-	public void getOvenEndTimeTest() {
+	void getOvenEndTimeTest() {
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
 				()-> ifStatement.getOvenEndTime("245 30\r\n20")
 		);
@@ -123,7 +123,7 @@ public class IfStatementTest {
 
 	@DisplayName("Q7: 상금 계산 프로그램")
 	@Test
-	public void calPrizeTest(){
+	void calPrizeTest(){
 		Assertions.assertThatIllegalArgumentException().isThrownBy(
 				()-> ifStatement.calPrize("3 3 7")
 		);

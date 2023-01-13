@@ -3,7 +3,6 @@ package com.example.AlgorithmTest;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.stream.IntStream;
 
 public class IfStatement {
 	public String compareNum(String numStr){
@@ -96,20 +95,21 @@ public class IfStatement {
 
 		return newTime.format(DateTimeFormatter.ofPattern("H m"));
 	}
-
+	@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 	public int calPrize(String diceStr) {
 		String[] diceStrArr = diceStr.split(" ");
 		if(diceStrArr.length != 3)
 			throw new IllegalArgumentException();
 		int[] diceIntArr = Arrays.stream(diceStrArr).mapToInt(Integer :: parseInt).toArray();
-		ArrayList<Integer> diceList = new ArrayList<Integer>();
+		ArrayList<Integer> diceList = new ArrayList<>();
 		for (int diceNum : diceIntArr) {
 			if (!(0 < diceNum && diceNum <= 6))
 				throw new IllegalArgumentException();
 			diceList.add(diceNum);
 		}
 		int duplicateCnt = (int) Arrays.stream(diceIntArr).distinct().count();
-		int prize = switch (duplicateCnt) {
+		int prize;
+		prize = switch (duplicateCnt) {
 			case 3 -> Arrays.stream(diceIntArr).max().getAsInt() * 100;
 			case 1 -> Arrays.stream(diceIntArr).max().getAsInt() * 1000 + 10000;
 			default ->{

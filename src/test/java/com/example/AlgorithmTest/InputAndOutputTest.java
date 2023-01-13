@@ -2,11 +2,10 @@ package com.example.AlgorithmTest;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-public class InputAndOutputTest {
+ class InputAndOutputTest {
 
 	private static InputAndOutPut inputAndOutPut;
 	@BeforeAll
@@ -16,14 +15,14 @@ public class InputAndOutputTest {
 
 	@DisplayName("Q1: 입력없이 'Hello World!' 출력")
 	@Test
-	public void helloWorld(){
+	 void helloWorld(){
 		String result = inputAndOutPut.printHelloWorld();
 		Assertions.assertThat(result).isEqualTo("Hello World!");
 	}
 
 	@DisplayName("Q2: 두 정수 A와 B를 입력받은 다음, 사칙연산 프로그램")
 	@Test
-	public void fourArithmeticTest(){
+	 void fourArithmeticTest(){
 		int addResult = inputAndOutPut.add(1, 2);
 		Assertions.assertThat(addResult).isEqualTo(3);
 		int subtractResult = inputAndOutPut.subtract(3, 2);
@@ -38,13 +37,13 @@ public class InputAndOutputTest {
 
 	@DisplayName("Q3: 두 정수 A와 B를 입력받은 다음, 나머지를 구함")
 	@Test
-	public void remainderTest(){
+	 void remainderTest(){
 		int remainderResult = inputAndOutPut.remainder(7,3);
 		Assertions.assertThat(remainderResult).isEqualTo(1);
 	}
 	@DisplayName("Q4: 두 정수 A와 B를 입력받은 다음, 나머지를 구함")
 	@Test
-	public void printIsMember(){
+	 void printIsMember(){
 		String isMemberStr = inputAndOutPut.printIsMember("joonas");
 		String isMemberStr2 = inputAndOutPut.printIsMember("baekjoon");
 		Assertions.assertThat(isMemberStr).isEqualTo("joonas??!");
@@ -53,20 +52,20 @@ public class InputAndOutputTest {
 
 	@DisplayName("Q5: 불기 연도가 주어질 때 이를 서기 연도로 바꿔 주는 프로그램")
 	@Test
-	public void convertYearTest(){
+	 void convertYearTest(){
 		int convertedYear = inputAndOutPut.convertYear(2541);
 		Assertions.assertThat(convertedYear).isEqualTo(1998);
 	}
 
 	@DisplayName("Q6: 흰색 피스의 개수가 주어졌을 때, 몇 개를 더하거나 빼야 올바른 세트가 되는지 구하는 프로그램 커스텀버전")
-	@Disabled
-	public void findChessPieceTest_custom(){
+	@Test
+	 void findChessPieceTest_custom(){
 		String result = inputAndOutPut.findChessPieceCustom(0,1,2,2,2,7);
 		Assertions.assertThat(result).isEqualTo("1 0 0 0 0 1");
 	}
 	@DisplayName("Q7: 흰색 피스의 개수가 주어졌을 때, 몇 개를 더하거나 빼야 올바른 세트가 되는지 구하는 프로그램")
 	@Test
-	public void findChessPieceTest(){
+	 void findChessPieceTest(){
 		String result = inputAndOutPut.findChessPiece("0 1 2 2 2 7");
 		Assertions.assertThat(result).isEqualTo("1 0 0 0 0 1");
 
@@ -80,20 +79,20 @@ public class InputAndOutputTest {
 	*/
 	@DisplayName("Q8: 세 수 A, B, C가 주어졌을 때, 위의 네 가지 값을 구하는 프로그램")
 	@Test
-	public void calFourResultsTest(){
+	 void calFourResultsTest(){
 		String result = inputAndOutPut.calFourResults("5 8 4");
 		Assertions.assertThat(result).isEqualTo("1\r\n1\r\n0\r\n0");
 	}
 
 	@DisplayName("Q9: (세 자리 수) × (세 자리 수) 프로그램")
 	@Test
-	public void getMultiplyTest(){
+	 void getMultiplyTest(){
 		String result = inputAndOutPut.getMultiply("472\r\n385");
 		Assertions.assertThat(result).isEqualTo("2360\r\n3776\r\n1416\r\n181720");
 	}
 	@DisplayName("Q10: 고양이 출력")
 	@Test
-	public void drawCatTest(){
+	 void drawCatTest(){
 		String result = inputAndOutPut.drawCat();
 		Assertions.assertThat(result).isEqualTo("""
 				\\    /\\
@@ -104,7 +103,7 @@ public class InputAndOutputTest {
 
 	@DisplayName("Q11: 개 출력")
 	@Test
-	public void drawDogTest(){
+	 void drawDogTest(){
 		String result = inputAndOutPut.drawDog();
 		Assertions.assertThat(result).isEqualTo( """
 				|\\_/|
@@ -115,7 +114,7 @@ public class InputAndOutputTest {
 	}
 	@DisplayName("Q12: 새싹 출력")
 	@Test
-	public void drawSproutTest(){
+	 void drawSproutTest(){
 		String result = inputAndOutPut.drawSprout();
 		System.out.println(result);
 		Assertions.assertThat(result).isEqualTo( """

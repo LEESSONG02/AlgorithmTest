@@ -9,7 +9,7 @@ public class LoopStatement {
 		if(!(1 <= num && num <= 9))
 			throw new IllegalArgumentException();
 
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 		for (int i = 1; i <= 9; i++) {
 			sb.append(String.format("%d * %d = %d", num, i, num*i));
@@ -25,7 +25,7 @@ public class LoopStatement {
 		int caseCnt = Integer.parseInt(caseStrArr[0]);
 		if(caseCnt != caseStrArr.length -1)
 			throw new IllegalArgumentException();
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		for (int i = 1; i < caseStrArr.length; i++) {
 			String[] eachCaseArr = caseStrArr[i].split(" ");
 			int[] eachCaseIntArr = Arrays.stream(eachCaseArr).mapToInt(Integer::parseInt).toArray();
@@ -78,7 +78,7 @@ public class LoopStatement {
 	public String printStars(int cnt) {
 		if(!(1 <= cnt && cnt <= 100))
 			throw new IllegalArgumentException();
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		for (int i = 1; i <=cnt ; i++) {
 			sb.append("*".repeat(i));
 			if(i != cnt)
@@ -89,7 +89,7 @@ public class LoopStatement {
 
 	public String terminateSum(String nums) {
 		String[] numsArr = nums.split("\r\n");
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 		for (int i = 0; i < numsArr.length; i++) {
 			String[] strArr = numsArr[i].split(" ");

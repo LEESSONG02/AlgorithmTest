@@ -59,7 +59,6 @@ public class InputAndOutPut {
 		int[] nums = Arrays.stream(chessItems).mapToInt(Integer::parseInt).toArray();
 		return String.format("%d %d %d %d %d %d", 1 -nums[0], 1-nums[1], 2-nums[2], 2-nums[3], 2-nums[4], 8-nums[5]);
 	}
-
 	public String calFourResults(String params){
 		String[] paramList = params.split(" ");
 		int[] paramIntList =  Arrays.stream(paramList).mapToInt(Integer::parseInt).toArray();
@@ -70,26 +69,24 @@ public class InputAndOutPut {
 		int A = paramIntList[0];
 		int B = paramIntList[1];
 		int C = paramIntList[2];
-		StringBuffer sb = new StringBuffer(Integer.toString((A+B)%C));
-		sb.append("\r\n");
-		sb.append(Integer.toString(((A%C) + (B%C))%C));
-		sb.append("\r\n");
-		sb.append(Integer.toString((A*B)%C));
-		sb.append("\r\n");
-		sb.append(Integer.toString(((A%C) * (B%C))%C));
 
-		return sb.toString();
+		return "\r\n" +
+				((A % C) + (B % C)) % C +
+				"\r\n" +
+				(A * B) % C +
+				"\r\n" +
+				((A % C) * (B % C)) % C;
 	}
 
 	public String getMultiply(String params){
 		String[] paramList = params.split("\r\n");
 		int A = Integer.parseInt(paramList[0]);
 		String[] param1List = paramList[1].split("");
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 
 
 		for(int i = param1List.length; i>0; i--){
-			sb.append(Integer.toString(A * (Integer.parseInt(param1List[i-1]))));
+			sb.append(A * (Integer.parseInt(param1List[i - 1])));
 			sb.append("\r\n");
 		}
 		sb.append(A * Integer.parseInt(paramList[1]));
