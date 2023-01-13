@@ -42,7 +42,18 @@ class OneDimensionalArrayTest {
 				5\r
 				""");
 		Assertions.assertThat(result2).isZero();
-
-
 	}
+	@DisplayName("Q2: 정수 N개로 이루어진 수열 A와 정수 X가 주어진다. 이때, A에서 X보다 작은 수를 모두 출력하는 프로그램")
+	@Test
+	void printSmallNumTest(){
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+			() -> oneDms.printSmallNum("0 5\r\n" +
+					"1 10 4 9 2 3 8 5 7 6")
+		);
+		String result = oneDms.printSmallNum("10 5\r\n" +
+				"1 10 4 9 2 3 8 5 7 6");
+		Assertions.assertThat(result).isEqualTo("1 4 2 3");
+	}
+
+
 }
