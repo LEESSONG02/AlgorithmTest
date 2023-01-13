@@ -65,5 +65,31 @@ class OneDimensionalArrayTest {
 				"20 10 35 30 7");
 		Assertions.assertThat(result).isEqualTo("7 35");
 	}
-
+	@DisplayName("Q4: 9개의 서로 다른 자연수가 주어질 때, 이들 중 최댓값을 찾고 그 최댓값이 몇 번째 수인지를 구하는 프로그램")
+	@Test
+	void findMaxIndexTest(){
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+			() -> oneDms.findMaxIndex("""
+					100\r
+					29\r
+					38\r
+					12\r
+					57\r
+					74\r
+					40\r
+					85\r
+					61""")
+		);
+		String result = oneDms.findMaxIndex("""
+				3\r
+				29\r
+				38\r
+				12\r
+				57\r
+				74\r
+				40\r
+				85\r
+				61""");
+		Assertions.assertThat(result).isEqualTo("85\r\n8");
+	}
 }

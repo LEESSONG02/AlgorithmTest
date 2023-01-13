@@ -1,6 +1,8 @@
 package com.example.AlgorithmTest;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.List;
 import java.util.OptionalInt;
 
 public class OneDimensionalArray {
@@ -67,5 +69,23 @@ public class OneDimensionalArray {
 				.append(maxInt);
 
 		return result.toString();
+	}
+
+	public String findMaxIndex(String intStr) {
+		int[] intArr = Arrays.stream(intStr.split("\r\n")).mapToInt(Integer::parseInt).toArray();
+		List<Integer> list = Arrays.stream(intArr).boxed().toList();
+		for (Integer integer : list) {
+			if(!(0 < integer && integer < 100))
+				throw new IllegalArgumentException();
+		}
+		int maxInt = Arrays.stream(intArr).max().orElseThrow(IllegalAccessError::new);
+		int maxIntIndex = list.indexOf(maxInt)+1;
+		StringBuilder sb = new StringBuilder();
+		sb.append(maxInt)
+			.append("\r\n")
+			.append(maxIntIndex);
+
+
+		return sb.toString();
 	}
 }
