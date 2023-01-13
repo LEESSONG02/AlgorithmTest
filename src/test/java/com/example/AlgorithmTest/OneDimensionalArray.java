@@ -1,6 +1,7 @@
 package com.example.AlgorithmTest;
 
 import java.util.Arrays;
+import java.util.OptionalInt;
 
 public class OneDimensionalArray {
 	public int countHowMany(String intStr) {
@@ -31,9 +32,9 @@ public class OneDimensionalArray {
 		if(!(1 <= N && N <= 10000) || !(1 <= X && X <= 10000) || N != intArr.length)
 			throw new IllegalArgumentException();
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < intArr.length; i++) {
-			if(intArr[i] < X){
-				sb.append(intArr[i]);
+		for (int j : intArr) {
+			if (j < X) {
+				sb.append(j);
 				sb.append(" ");
 			}
 		}
@@ -42,5 +43,29 @@ public class OneDimensionalArray {
 		result = sb.toString();
 
 		return result;
+	}
+
+	public String printMinMax(String intStr) {
+		String[] intStrArr = intStr.split("\r\n");
+		if(intStrArr.length != 2)
+			throw new IllegalArgumentException();
+		int N = Integer.parseInt(intStrArr[0]);
+		if(!(1 <= N && N <= 1000000))
+			throw new IllegalArgumentException();
+		int[] intArr = Arrays.stream(intStrArr[1].split(" ")).mapToInt(Integer :: parseInt).toArray();
+
+		int minInt = Arrays.stream(intArr).min().orElseThrow(
+				IllegalArgumentException :: new
+		);
+		int maxInt = Arrays.stream(intArr).max().orElseThrow(
+				IllegalArgumentException :: new
+		);
+
+		StringBuilder result = new StringBuilder();
+		result.append(minInt)
+				.append(" ")
+				.append(maxInt);
+
+		return result.toString();
 	}
 }

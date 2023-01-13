@@ -54,6 +54,16 @@ class OneDimensionalArrayTest {
 				"1 10 4 9 2 3 8 5 7 6");
 		Assertions.assertThat(result).isEqualTo("1 4 2 3");
 	}
-
+	@DisplayName("Q3: N개의 정수가 주어진다. 이때, 최솟값과 최댓값을 구하는 프로그램을 작성하시오.")
+	@Test
+	void printMinMaxTest(){
+		Assertions.assertThatIllegalArgumentException().isThrownBy(
+			() -> oneDms.printMinMax("0\r\n" +
+					"20 10 35 30 7")
+		);
+		String result = oneDms.printMinMax("5\r\n" +
+				"20 10 35 30 7");
+		Assertions.assertThat(result).isEqualTo("7 35");
+	}
 
 }
